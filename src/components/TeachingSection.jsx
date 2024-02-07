@@ -1,5 +1,5 @@
-import WayToTeach from "../WayToTeach";
-import { ways } from "../../data";
+import WayToTeach from "./WayToTeach";
+import { ways } from "../data";
 
 export default function TeachingSection() {
     return (
