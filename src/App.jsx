@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function App() {
   const [tab, setTab] = useState('main');
-  
+
   return (
     <>
       <Header/>

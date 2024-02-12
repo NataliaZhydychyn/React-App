@@ -1,10 +1,12 @@
-import './Button.css'
+import classes from './Button.module.css'
 
 export default function Button({ children, onButtonClick, isActive }) {
 
     return (
         <button 
-            className={isActive ? 'button active' : 'button'}
+            className={
+                isActive ? `${classes.button} ${classes.active}` : classes.button
+            }
             onClick={onButtonClick}
         >
             {children}
