@@ -4,10 +4,11 @@ import Button from "./Button/Button";
 export default function FeedbackSection() {
     const [name, setName] = useState('');
     const [reason, setReason] = useState('help');
-    const [hasError, setHasError] = useState('help');
+    const [hasError, setHasError] = useState(false);
 
     function handleNameChange(event) {
         setName(event.target.value);
+        setHasError(event.target.value.trim().length === 0)
     }
 
     return (
@@ -23,7 +24,7 @@ export default function FeedbackSection() {
                     value={name}
                     onChange={handleNameChange}
                     style={{
-                        border: name.trim().length ? null : '1px solid red'
+                        border: hasError ? '1px solid red' : null
                     }}
                 />  
 
@@ -43,7 +44,7 @@ export default function FeedbackSection() {
                     Reason: {reason};
                 </pre> 
 
-                <Button>Send</Button>      
+                <Button disabled={hasError}>Send</Button>      
             </form>
         </section>
     )
