@@ -44,7 +44,7 @@ export default function FeedbackSection() {
                     Reason: {reason};
                 </pre> 
 
-                <Button disabled={hasError}>Send</Button>      
+                <Button disabled={hasError} isActive={!hasError}>Send</Button>      
             </form>
         </section>
     )
