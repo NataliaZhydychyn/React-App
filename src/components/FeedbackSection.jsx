@@ -4,21 +4,21 @@ import Button from "./Button/Button";
 export default function FeedbackSection() {
     const [form, setForm] = useState({
         name:'',
-        hasError: true,
+        hasError: false,
         reason: 'help'
     })
 
-    // const [name, setName] = useState('');
-    // const [reason, setReason] = useState('help');
-    // const [hasError, setHasError] = useState(false);
-
     function handleNameChange(event) {
-        // setName(event.target.value);
-        // setHasError(event.target.value.trim().length === 0);
-        setForm({
+        // setForm({
+        //     name: event.target.value,
+        //     hasError: event.target.value.trim().length === 0,
+        //     reason: form.reason
+        // })
+        setForm((prev) => ({
+            ...prev,
             name: event.target.value,
             hasError: event.target.value.trim().length === 0,
-        })
+        }))
     }
 
     return (
@@ -43,7 +43,10 @@ export default function FeedbackSection() {
                     id="reason" 
                     className="control" 
                     value={form.reason}
-                    onChange={(event) => setReason(event.target.value)}
+                    onChange={(event) => setForm((prev) => ({ 
+                        ...prev, 
+                        reason: event.target.value
+                    }))}
                 >
                     <option value="error">Error</option>
                     <option value="help">Assistance</option>
